@@ -1,0 +1,49 @@
+<%= render 'shared/errors', obj: @note %>
+
+<div class='container'>
+  <div class='well' id='charlie'>
+  <%= form_for @note do |f| %>
+  <div class='control-group'>
+    <%= f.text_field :subject, placeholder: "subject" %>
+  </div>
+    <%= f.text_area :body, rows: 5, placeholder: "Do (notes) ..." %>
+  <%= f.submit(@note.new_record? ? 'Create Note' : 'Revise Note', class: 'btn btn-primary') %>
+  <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

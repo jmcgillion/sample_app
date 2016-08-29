@@ -1,0 +1,107 @@
+<nav class='navbar navbar-default navbar-fixed-top'>
+  <div class='container'>
+    <a href='index.html' class='navbar-brand'>LETSDo</a>
+    <% if !logged_in? %>
+    <%= link_to 'sign in', login_path %>
+    <%= link_to 'register', register_path %>
+    <% end  %>
+    <div class="btn-group navbar-right">
+      <button type="button" class="btn btn-danger">
+      <% if logged_in? %><%= current_user.username %><% end %></button>
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Favorites Panel</a></li>
+        <li><%= link_to "Sign out", logout_path%></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class='nav_item' style='padding-top: 5em'>
+    <div class='row'>
+      <div class='col-lg-2 col-lg-offset-1'>
+      <button class="btn-danger btn-xlge">
+        <%= link_to "A", controller: "folders", action: "show_posts" %>
+      </button>
+      </div>
+      <div class='col-lg-2'>
+      <button class="btn-warning btn-xlge">
+          <%= link_to "B", controller: "folders", action: "show_posts" %>
+      </button>
+      </div>
+      <div class='col-lg-2'>
+        <button class="btn-success btn-xlge">
+          <%= link_to "C", controller: "folders", action: "show_posts" %>
+        </button>
+      </div>
+      <div class='col-lg-2'>
+        <button class="btn-info btn-xlge"> 
+          <%= link_to "D", controller: "folders", action: "show_posts" %>
+        </button>
+      </div>
+      <div class='col-lg-2'>
+        <button class="btn-action btn-xlge">
+          <%= link_to "E", controller: "folders", action: "show_posts" %>
+        </button>
+      </div>
+  </div>
+ </div>
+
+<div class='nav_item' style='padding-top: 5em'>
+    <div class='row'>
+      <div class='col-lg-2'>
+      </div>
+      <div class='col-lg-1'>
+        <%= link_to 'New Note', new_note_path, class: 'btn btn-success btn-small' %>
+      </div>
+      <div class='col-lg-2'>
+        <%= link_to 'New Category', new_folder_path, class: 'btn btn-success btn-small' %>
+      </div>
+      <div class='col-lg-1'>
+        <%= link_to "#", class: "btn btn-default" do %>
+          <i class="glyphicon glyphicon-triangle-left"></i>
+      `<% end %>
+      </div>
+      <div class='col-lg-1'>
+        <%= link_to "#", class: "btn btn-default" do %>
+          <i class="glyphicon glyphicon-trash"></i>
+      `<% end %>
+      </div>
+      <div class='col-lg-3'>
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+  </div>
+ </div>
+
+
+<div class='container' style='padding-top: 5em'>
+    <div class='row'>
+      <div class='span0 col-lg-2'>
+        <%= link_to "Work", folder_path(:id => 2) %>
+        <%= link_to "Play", folder_path(:id => 3) %>
+        <%= link_to "Well-Being", folder_path(:id => 4) %>
+      </div>
+      <div class='col-lg-9 col-lg-offset-1'>
+            <table class='table table-striped table-hover'>
+              <tr><% @folder.notes.each do |note| %>
+                    <th><%= note.subject %></th>
+                     <th><%= note.body %></th>
+                     <th><%= display_datetime(note.created_at)%></th> 
+              </tr>
+              <% end %>
+            </table>
+        </div>
+    </div>
+</div>
+
