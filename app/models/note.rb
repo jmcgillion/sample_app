@@ -7,11 +7,19 @@ class Note < ActiveRecord::Base
   validates :subject, presence: true
   validates :body, presence: true
 
-  def search_by_title(search_term)
+  def self.search_by_title(search_term)
     return [] if search_term.blank?
     where("body LIKE ?", "%#{search_term}%").order("created_at DESC")
   end
 end
+
+
+
+
+
+
+
+
 
 
 

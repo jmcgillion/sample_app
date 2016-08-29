@@ -1,6 +1,6 @@
 <nav class='navbar navbar-default navbar-fixed-top'>
   <div class='container'>
-    <a href='index.html' class='navbar-brand'>LETSDo</a>
+    <a href='index.html' class='navbar-brand'>WPW</a>
     <% if !logged_in? %>
     <%= link_to 'sign in', login_path %>
     <%= link_to 'register', register_path %>
@@ -45,9 +45,8 @@
       `<% end %>
       </div>
       <div class='col-lg-3'>
-        <form class="navbar-form navbar-right">
           <div class="form-group">
-          <%= form_tag("/notes/search", method: "get") do %>
+          <%= form_tag("/notes/search", method: "get", class: "navbar-form navbar-right") do %>
             <%= label_tag(:search_term, "Search for:") %>
             <%= text_field_tag(:search_term) %>
             <%= submit_tag("Search") %>
@@ -66,9 +65,9 @@
       <div class="sidebar-nav">
             <div class="well">
             <ul class="nav nav-list"> 
-              <li><%= link_to "Work", folder_path(:id => 2) %></li>
-              <li><%= link_to "Play", folder_path(:id => 3) %></li>
-              <li><%= link_to "Well-Being", folder_path(:id => 4) %></li>
+              <li><%= link_to "W", folder_path(:id => 2) %></li>
+              <li><%= link_to "P", folder_path(:id => 3) %></li>
+              <li><%= link_to "W", folder_path(:id => 4) %></li>
             </ul>
             </div>
       </div>

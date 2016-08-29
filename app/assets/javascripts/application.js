@@ -16,9 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-#notes {
-    cursor: -moz-grab;
-}
+
 
 
 

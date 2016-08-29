@@ -1,20 +1,27 @@
 <div class='container-fluid'>
   <div class='row equal'>
   <% @posts.each do |post| %>
-    <div class='col-lg-3'>
-      <div class='span3' id="boxes">
+    <div class='col-lg-3' id='boxes'>
+      <div class>
         <%= post.title %>
       </div>
-      <div class='span3'>
+      <div class>
         <%= post.body %>
       </div>
-      <div class='span3'>
+      <div class>
         <%= post.creator %>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
 
 
 
