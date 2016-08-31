@@ -1,20 +1,75 @@
 <div class='container-fluid'>
-  <div class='row'>
-    <% @posts.each do |post| %>
-      <div class='col-lg-3'>
-        <div>
-        <%= post.title %>
-       </div>
-        <div>
-        <%= post.body %>
-        </div>
-        <div>
-        <%= post.creator %>
-        </div>
+<% @posts.each_slice(4) do |post| %>
+  <div class="row">
+    <% post.each do |p| %>
+      <div class="col-lg-3">
+        <%= p.body %>
       </div>
     <% end %>
   </div>
+<% end %>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

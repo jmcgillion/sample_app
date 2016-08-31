@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:destroy]
 
+  resources :avatars, only: [:show]
+
   get '/folders/:id/posts', to: 'folders#show_posts'
 
   
