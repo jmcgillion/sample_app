@@ -4,8 +4,11 @@ class Avatar < ActiveRecord::Base
     small: '140x140>'
     thumb: '64x64!'
   }
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  
+  validates_attachment :image, content_type: { content_type: /\Aimage\/.*\Z/ }
 end
+
+# source: treehouse tutorial -- attaching files in rails as well as paperclip documentation and stackoverflow -- error messages ...
 
 
 

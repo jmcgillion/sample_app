@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831114103) do
+ActiveRecord::Schema.define(version: 20160902130150) do
+
+  create_table "avatars", force: :cascade do |t|
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.string   "asset_file_size"
+    t.datetime "asset_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "folders", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +57,20 @@ ActiveRecord::Schema.define(version: 20160831114103) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "folder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reverse_relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

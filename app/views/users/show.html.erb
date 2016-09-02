@@ -1,5 +1,70 @@
-<% @users.each do |user| %>
-    <%= user.name %>
+<h1>
+  <%= @user.username %>
+</h1>
+
+<div>
+  <%= image_tag @user.avatar.url %>
+</div>
+<div>
+  <%= image_tag @user.avatar.url(:medium) %>
+</div>
+<div>
+  <%= image_tag @user.avatar.url(:thumb) %>
+</div>
+
+<div class='stats'>
+  <a href='<%= following_user_path(@user) %>'>
+    <strong id='following' class='stat'>
+      <%= @user.followed_users.count %>
+    </strong>
+    following
+  </a>
+   <a href='<%= followers_user_path(@user) %>'>
+    <strong id='followers' class='stat'>
+      <%= @user.followed_users.count %>
+    </strong>
+    followers
+  </a>
+</div>
+
+<% unless current_user %>
+  <div id='follow_form'>
+    <% if current_user.following?(@user) %>
+        <%= render 'unfollow' %>
+    <% else %>
+      <%= render 'follow' %>
+    <% end %>
+  </div>
 <% end %>
+
+<% render 'follow' if logged_in? %>
+
+<div class='well'>
+  <% @user.posts.each do |post| %>
+    <div class='row'>
+      <%= post.title %>
+      <%= post.body %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

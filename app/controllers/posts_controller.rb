@@ -10,20 +10,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def new
-
-  end
-
-  def create
+ def create
     @folder = Folder.find(params[:folder_id])
-    @post= @folder.posts.build(params.require(:post).permit(:title, :body))
+    @post= @folder.posts.build(params.require(:post).permit(:title, :body, :avatar))
     @post.creator = current_user
 
     if @post.save
       flash[:notice] = 'Your post has posted.'
-      redirect_to post_path(@post)
+      redirect_to :back
     else
-      render :show
+      render 'folders/show_posts'
     end
   end
 

@@ -13,7 +13,14 @@ Rails.application.routes.draw do
 
   resources :folders, only: [:show, :new, :create]
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show] do
+    member do
+      get :following, :followers
+    end
+  end
+
+  get '/home', to:"staticpages#home"
+  
 
   resources :posts, except: [:destroy]
 

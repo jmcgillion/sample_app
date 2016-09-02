@@ -7,6 +7,9 @@ class FoldersController < ApplicationController
 
   def show_posts
     @folder = Folder.find(params[:id])
+    @posts = @folder.posts
+
+    @post = Post.new
   end
 
   def new

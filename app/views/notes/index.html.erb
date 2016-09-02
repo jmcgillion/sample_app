@@ -5,7 +5,6 @@
     <%= link_to 'sign in', login_path %>
     <%= link_to 'register', register_path %>
     <% end  %>
-    <%= link_to "Paperclip", paperclip_images_path %>
     <div class="btn-group navbar-right">
       <button type="button" class="btn btn-danger">
       <% if logged_in? %><%= current_user.username %><% end %></button>
@@ -25,7 +24,7 @@
   </div>
 </nav>
 
-<%= link_to "Paperclip", paperclip_images_path %>
+
 
 <div class='nav_item' style='padding-top: 5em'>
     <div class='row'>

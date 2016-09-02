@@ -1,7 +1,50 @@
-<% @folder.posts.each do |post| %>
-<%= post.title %>
-<%= post.body %>
+<div class='container-fluid'>
+<% @posts.each_slice(4) do |post| %>
+  <div class="row">
+    <% post.each do |p| %>
+      <div class="col-lg-3 boxes">
+        <h3>
+          <span style='font-style: underline'><%= p.title %></span>
+        </h3>
+        <br>
+        <p>
+          <%= p.body %>
+        </p>
+        <small>
+          <%= p.creator %>
+        </small>
+    </div>
+    <% end %>
+  </div>
 <% end %>
+</div>
+<br>
+<div>
+  <div class='well'>
+  <%= form_for [@folder, @post] do |f| %>
+    <div class='control-group'>
+      <%= f.label :title %>
+      <%= f.text_area :title %>
+    </div>
+    <div class='control-group'>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div class='control-group'>
+      <%= f.label :avatar, "Add Photo" %>
+      <%= f.file_field :avatar %>
+    </div>
+  <%= f.submit "New Post" %>
+  <% end %>
+</div>
+</div>
+
+
+
+
+
+
+
 
 
 

@@ -6,8 +6,13 @@ class CreateAvatars < ActiveRecord::Migration
       t.string "asset_file_size"
       t.datetime "asset_updated_at"
       t.timestamps
+      end
   end
 end
+
+
+
+
 
 
 
