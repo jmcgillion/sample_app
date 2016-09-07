@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :destroy]
   def show
     @folder = Folder.find(params[:folder_id])
     @posts = @folder.posts

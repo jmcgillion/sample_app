@@ -20,6 +20,7 @@
 </div>
 <br>
 <div>
+  <% if logged_in? %>
   <div class='well'>
   <%= form_for [@folder, @post] do |f| %>
     <div class='control-group'>
@@ -36,8 +37,11 @@
     </div>
   <%= f.submit "New Post" %>
   <% end %>
+  <% end %>
 </div>
 </div>
+
+
 
 
 

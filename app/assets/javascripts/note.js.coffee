@@ -1,0 +1,6 @@
+jQuery ->
+  $('#notes').draggable();
+
+  
+
+  
