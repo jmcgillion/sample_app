@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = current_user.notes if current_user
+    @notes = Note.all
   end
 
   def show
