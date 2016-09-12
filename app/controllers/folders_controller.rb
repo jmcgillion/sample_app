@@ -13,11 +13,11 @@ class FoldersController < ApplicationController
   end
 
   def new
-    @folder = Folder.new
+    @folder = Folder.new(:parent_id => params[:parent_id])
   end
 
   def create
-    @folder = Folder.new(folder_params)
+    @folder = Folder.new(folder_params, :parent_id => params[:parent_id])
     @folder.creator = current_user
 
     if @folder.save
@@ -33,8 +33,11 @@ class FoldersController < ApplicationController
     params.require(:folder).permit(:name)
   end
 
-
 end
+
+
+
+
 
 
 

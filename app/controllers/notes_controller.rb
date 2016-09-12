@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.all
+    @notes = current_user.notes
   end
 
   def show
@@ -12,6 +12,7 @@ class NotesController < ApplicationController
   end
 
   def create
+    binding.pry
     @note = Note.new(note_params)
     @note.creator = current_user
 

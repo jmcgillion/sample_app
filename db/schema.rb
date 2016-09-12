@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902130150) do
+ActiveRecord::Schema.define(version: 20160908130936) do
 
   create_table "avatars", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160902130150) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ancestry"
   end
 
   create_table "lessons", force: :cascade do |t|

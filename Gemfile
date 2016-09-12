@@ -18,6 +18,8 @@ gem 'pry'
 
 gem "paperclip", "~> 5.0.0"
 
+gem 'ancestry'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails', "~> 2.3.0"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

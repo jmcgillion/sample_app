@@ -3,11 +3,15 @@ class Folder < ActiveRecord::Base
 
   has_many :posts
 
+  has_ancestry
+
   has_many :note_folders
   has_many :notes, through: :note_folders
 
   validates :name, presence: true
 end
+
+
 
 
 
