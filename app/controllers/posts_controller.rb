@@ -1,10 +1,8 @@
 class PostsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   def show
-    @folder = Folder.find(params[:folder_id])
-    @posts = @folder.posts
-
-    @post = Post.new(note_params)
+    @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def index
@@ -27,6 +25,23 @@ class PostsController < ApplicationController
   def edit
 
   end
+
+  def vote
+    @vote = Vote.create(vote: params[:vote], creator: current_user)
+
+    respond_to do |format|
+      format.html do
+        if @vote.valid?
+          flash[:notice] = 'Your vote was counted.'
+        else
+          flash[:error] = 'You can only vote on a post once.'
+        end
+        redirect_to :back
+      end
+      format.js
+    end
+  end
+    
 
   def update
 

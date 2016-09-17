@@ -1,0 +1,25 @@
+<nav class='navbar navbar-default navbar-fixed-top'>
+  <div class='container-fluid'>
+    <a href='index.html' class='navbar-brand'>WPW</a>
+    <% if !logged_in? %>
+    <%= link_to 'sign in', login_path %>
+    <%= link_to 'register', register_path %>
+    <% end  %>
+    <div class="btn-group navbar-right">
+      <button type="button" class="btn btn-danger">
+      <% if logged_in? %><%= current_user.username %><% end %></button>
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#"> Preferences A</a></li>
+        <li><a href="#">Preferences B</a></li>
+        <li><a href="#">Favorites Panel</a></li>
+        <li><%= link_to "Sign out", logout_path %></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

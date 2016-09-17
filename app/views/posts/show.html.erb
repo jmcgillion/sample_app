@@ -1,11 +1,30 @@
-<%= @posts.each do |post| %>
-<%= post.title %>
-<%= post.body %>
+
+<h3>
+  <%= @post.title %>
+<p>
+<%= @post.description %>
+</p>
+<hr/>
+# the rest of normal post but bigger goes here, with room to leave a comment as well as scroll down to see other comments ...
+
+<% if logged_in? %>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= render 'shared/errors', obj: @comment %>
+    <div class='control-group'>
+      <%= f.label :body, 'Leave a comment' %>
+      <%= f.text_area :body, rows: 3, class: 'span4' %>
+    </div>
+    <%= f.submit "Create comment", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+<h5>Comments:</h5>
+
+<% @post.reload.comments.each do |comment| %>
+  <%= comment.body %>
 <% end %>
 
 
-
-<% render 'form', obj: @post %>
 
 
 

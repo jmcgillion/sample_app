@@ -1,5 +1,6 @@
-jQuery ->
-  $('#notes').draggable();
+
+
+ 
 
 
 

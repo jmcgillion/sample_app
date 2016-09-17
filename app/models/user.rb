@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :folders
   has_many :posts
+  has_many :comments
+
+  has_many :user_favorites
+  has_many :favorites, through: :user_favorites, source: :question
 
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
