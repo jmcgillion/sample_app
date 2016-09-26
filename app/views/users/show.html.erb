@@ -27,15 +27,7 @@
   </a>
 </div>
 
-<% unless current_user %>
-  <div id='follow_form'>
-    <% if current_user.following?(@user) %>
-        <%= render 'unfollow' %>
-    <% else %>
-      <%= render 'follow' %>
-    <% end %>
-  </div>
-<% end %>
+<% render 'follow_form' if logged_in? %>
 
 <% render 'follow' if logged_in? %>
 

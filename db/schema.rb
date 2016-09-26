@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916190147) do
+ActiveRecord::Schema.define(version: 20160926110458) do
 
   create_table "avatars", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -78,6 +78,10 @@ ActiveRecord::Schema.define(version: 20160916190147) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "reverse_relationships", force: :cascade do |t|
     t.integer  "follower_id"

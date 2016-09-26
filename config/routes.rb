@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :folders, only: [:show, :new, :create] 
+
+  resources :relationships, only: [:create, :destroy]
    
 
   resources :users, only: [:create, :show] do
